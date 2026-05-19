@@ -3,114 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnleashHarry Premium Store</title>
+    <title>Amit Premium Store</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #0f0c1b; color: #fff; overflow-x: hidden; text-align: center; }
+        body { background: #0b0813; color: #fff; overflow-x: hidden; text-align: center; }
         
-        /* शानदार नियॉन हेडर */
+        /* प्रीमियम नियॉन हेडर - अमित भाई का स्टोर */
         header { 
-            background: linear-gradient(135deg, #1f1a3a, #0d0b18); 
-            padding: 30px 15px; 
-            border-bottom: 2px solid #00f2fe;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+            background: linear-gradient(135deg, #151026, #07050d); 
+            padding: 35px 15px; 
+            border-bottom: 3px solid #2874f0; /* फ्लिपकार्ट ब्लू नियॉन शेड */
+            box-shadow: 0 5px 25px rgba(40, 116, 240, 0.3);
         }
-        .logo-text { font-size: 32px; font-weight: 800; tracking-letter: 1px; color: #fff; text-shadow: 0 0 10px #00f2fe, 0 0 20px #4facfe; }
-        .subtitle { font-size: 14px; color: #a0aec0; margin-top: 8px; font-weight: 300; }
+        .logo-text { font-size: 34px; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px #2874f0, 0 0 25px #00f2fe; animation: glow 2s ease-in-out infinite alternate; }
+        .subtitle { font-size: 15px; color: #a0aec0; margin-top: 10px; font-weight: 300; letter-spacing: 1px; }
 
-        /* प्रोडक्ट्स कंटेनर */
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #2874f0, 0 0 20px #2874f0; }
+            to { text-shadow: 0 0 15px #00f2fe, 0 0 30px #00f2fe; }
+        }
+
+        /* कड़क ग्रिड लेआउट */
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 40px 15px; max-width: 1200px; margin: 0 auto; }
         
-        /* 3D ग्लोइंग प्रोडक्ट कार्ड */
+        /* एनिमेटेड 3D ग्लास कार्ड */
         .product-card { 
             background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            margin: 20px; 
-            padding: 20px; 
-            border-radius: 16px; 
-            width: 300px; 
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            margin: 20px 15px; 
+            padding: 22px; 
+            border-radius: 20px; 
+            width: 290px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
+        
+        /* शाइन इफेक्ट */
         .product-card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: 0.6s;
         }
         .product-card:hover::before { left: 100%; }
+        
+        /* होवर करने पर कार्ड का उछलना और चमकना */
         .product-card:hover { 
-            transform: translateY(-10px) scale(1.02); 
-            border-color: #00f2fe; 
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); 
+            transform: translateY(-12px) scale(1.03); 
+            border-color: #ffd814; 
+            box-shadow: 0 0 30px rgba(40, 116, 240, 0.5); 
         }
         
-        /* प्रोडक्ट इमेज */
-        .img-container { background: #16122c; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); }
-        .product-card img { max-width: 100%; height: 180px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); transition: 0.3s; }
-        .product-card:hover img { transform: scale(1.05); }
+        /* डार्क इमेज कंटेनर */
+        .img-container { background: #130f22; border-radius: 14px; padding: 15px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; height: 190px; }
+        .product-card img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255,255,255,0.15)); transition: 0.3s ease; }
+        .product-card:hover img { transform: scale(1.08) rotate(2deg); }
 
-        /* टेक्स्ट और प्राइस */
-        .product-title { font-size: 18px; font-weight: 600; margin: 15px 0 8px; color: #e2e8f0; text-align: left; height: 45px; overflow: hidden; }
-        .product-price { color: #00f2fe; font-size: 24px; font-weight: 700; text-align: left; margin-bottom: 15px; text-shadow: 0 0 10px rgba(0,242,254,0.3); }
+        /* टेक्स्ट डिज़ाइन */
+        .product-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #f7fafc; text-align: left; height: 48px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .product-price { color: #ffd814; font-size: 24px; font-weight: 700; text-align: left; margin-bottom: 18px; text-shadow: 0 0 8px rgba(255,216,20,0.3); }
         
-        /* एनिमेटेड बटन */
+        /* प्रीमियम फ्लिपकार्ट स्टाइल बटन */
         .buy-btn { 
             display: block; 
-            background: linear-gradient(45deg, #00f2fe, #4facfe); 
+            background: linear-gradient(45deg, #2874f0, #00f2fe); 
             color: #fff; 
-            padding: 12px; 
+            padding: 14px; 
             text-decoration: none; 
-            border-radius: 10px; 
+            border-radius: 12px; 
             font-weight: 600; 
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(40, 116, 240, 0.4);
             transition: all 0.3s ease;
             border: none;
-            cursor: pointer;
         }
         .buy-btn:hover { 
-            background: linear-gradient(45deg, #4facfe, #00f2fe); 
-            box-shadow: 0 0 20px #00f2fe;
-            transform: translateY(-2px);
+            background: linear-gradient(45deg, #ffd814, #ff9f00); 
+            color: #000;
+            box-shadow: 0 0 25px #ffd814;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-text">⚡ UNLEASH HARRY STORE ⚡</div>
-        <div class="subtitle">बेस्ट गैजेट्स और ट्रेंडी प्रोडक्ट्स - सबसे कम दामों पर</div>
+        <div class="logo-text">⚡ AMIT PREMIUM STORE ⚡</div>
+        <div class="subtitle">टॉप रेटेड फ्लिपकार्ट गैजेट्स और बेस्ट डील्स - सीधे आपके लिए</div>
     </header>
 
     <div class="container">
+        
         <div class="product-card">
             <div class="img-container">
-                <img src="https://m.media-amazon.com/images/I/61SSVxTSsBL._SX679_.jpg" alt="Smart Watch">
+                <img src="https://m.media-amazon.com/images/I/71GLMJ764xL._SX679_.jpg" alt="Boult Audio Wireless">
             </div>
-            <div class="product-title">Premium Fitness Smartwatch</div>
-            <div class="product-price">₹2,499</div>
-            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
-        </div>
-
-        <div class="product-card">
-            <div class="img-container">
-                <img src="https://m.media-amazon.com/images/I/71GLMJ764xL._SX679_.jpg" alt="Headphones">
-            </div>
-            <div class="product-title">Wireless ANC Bluetooth Headphones</div>
+            <div class="product-title">Boult Audio Wireless Bluetooth Headphones</div>
             <div class="product-price">₹1,499</div>
-            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
+            <a href="https://www.flipkart.com" target="_blank" class="buy-btn">🛒 Flipkart पर खरीदें</a>
         </div>
 
         <div class="product-card">
             <div class="img-container">
-                <img src="https://m.media-amazon.com/images/I/71657TiFeHL._SX679_.jpg" alt="Mens Watch">
+                <img src="https://m.media-amazon.com/images/I/61t7mU46EWL._SX679_.jpg" alt="Mivi Earbuds">
             </div>
-            <div class="product-title">Classic Luxury Black Quartz Watch</div>
-            <div class="product-price">₹1,999</div>
-            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
+            <div class="product-title">Mivi SuperPods Duopods (Deep Bass)</div>
+            <div class="product-price">₹1,199</div>
+            <a href="https://www.flipkart.com" target="_blank" class="buy-btn">🛒 Flipkart पर खरीदें</a>
         </div>
+
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://m.media-amazon.com/images/I/61SSVxTSsBL._SX679_.jpg" alt="Smartwatch">
+            </div>
+            <div class="product-title">AMOLED Display Smartwatch with BT Calling</div>
+            <div class="product-price">₹2,499</div>
+            <a href="https://www.flipkart.com" target="_blank" class="buy-btn">🛒 Flipkart पर खरीदें</a>
+        </div>
+
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://m.media-amazon.com/images/I/71lVwl3q-kL._SX679_.jpg" alt="Power Bank">
+            </div>
+            <div class="product-title">Fast Charging 10000mAh Power Bank</div>
+            <div class="product-price">₹999</div>
+            <a href="https://www.flipkart.com" target="_blank" class="buy-btn">🛒 Flipkart पर खरीदें</a>
+        </div>
+
     </div>
 
 </body>
