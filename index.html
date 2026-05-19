@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit's Personal AI</title>
+    <title>My Online Shopping Store</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #212121; color: #ececf1; display: flex; flex-direction: column; height: 100vh; }
-        
-        header { background-color: #2f2f2f; padding: 15px; text-align: center; border-bottom: 1px solid #424242; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
-        header span { color: #10a37f; }
-        .key-btn { background: #3f3f3f; border: 1px solid #555; color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
-
-        .chat-container { flex: 1; overflow-y: auto; padding: 20px; width: 100%; max-width: 800px; margin: 0 auto; }
-        .row { display: flex; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
-        .user-row { background-color: transparent; justify-content: flex-end; }
-        .bot-row { background-color: #2f2f2f; border: 1px solid #424242; justify-content: flex-start; }
-        .msg-text { max-width: 85%; }
-        .user-row .msg-text { background-color: #3f3f3f; padding: 10px 16px; border-radius: 20px; }
-        
-        .input-outer { background-color: #212121; padding: 20px 10px; display: flex; justify-content: center; width: 100%; }
-        .input-container { background-color: #2f2f2f; border: 1px solid #424242; border-radius: 24px; padding: 6px 12px; display: flex; width: 100%; max-width: 760px; align-items: center; }
-        input { flex: 1; background: transparent; border: none; padding: 10px; color: #fff; font-size: 1rem; outline: none; }
-        button.send-btn { background-color: #10a37f; border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
+        header { background-color: #232f3e; color: white; padding: 15px; font-size: 24px; font-weight: bold; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        .product-card { background: white; border: 1px solid #ddd; margin: 15px; padding: 15px; border-radius: 8px; width: 280px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .product-card img { max-width: 100%; height: auto; border-radius: 5px; }
+        .product-title { font-size: 18px; font-weight: bold; margin: 10px 0; color: #333; }
+        .product-price { color: #B12704; font-size: 20px; font-weight: bold; margin: 5px 0; }
+        .buy-btn { display: inline-block; background-color: #ffd814; color: #111; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold; margin-top: 10px; border: 1px solid #fcd200; }
+        .buy-btn:hover { background-color: #f7ca00; }
     </style>
 </head>
 <body>
-    <header>
-        <div>Amit's Personal AI <span>🤖</span></div>
-        <button class="key-btn" onclick="setApiKey()">🔑 Set Key</button>
-    </header>
-    
-    <div class="chat-container" id="chatContainer">
-        <div class="row bot-row">
-            <div class="msg-text">
-                <strong>Amit's AI:</strong> Ram Ram Amit bhai! Main aapka personal AI hoon. <br><br><b>⚠️ Note:</b> Sabse pehle upar <b>🔑 Set Key</b> button par click karke apni Google AI Studio wali free key daal do, fir tera bhai hamesha ke liye chalu ho jayega! 🚀
-            </div>
+
+    <header>🛍️ मेरा बेस्ट शॉपिंग स्टोर 🛍️</header>
+    <p style="margin-top: 20px; font-size: 16px; color: #666;">यहाँ आपको मिलेंगे सबसे बेहतरीन प्रोडक्ट्स सबसे कम दामों पर!</p>
+
+    <div class="container">
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71GLMJ764xL._SX679_.jpg" alt="Product 1">
+            <div class="product-title">स्टाइलिश ब्लूटूथ हेडफोन्स (Wireless)</div>
+            <div class="product-price">₹1,499</div>
+            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
+        </div>
+
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61SSVxTSsBL._SX679_.jpg" alt="Product 2">
+            <div class="product-title">स्मार्ट वॉच (Fitness Tracker)</div>
+            <div class="product-price">₹2,499</div>
+            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
+        </div>
+
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71657TiFeHL._SX679_.jpg" alt="Product 3">
+            <div class="product-title">प्रीमियम मेन्स वॉच (Classic Black)</div>
+            <div class="product-price">₹1,999</div>
+            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
         </div>
     </div>
 
-    <div class="input-outer">
-        <div class="input-container">
-            <input type="text" id="userInput" placeholder="Message Amit's AI..." onkeydown="if(event.key === 'Enter') sendMsg()">
-            <button class="send-btn" onclick="sendMsg()">➔</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
