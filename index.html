@@ -3,47 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Online Shopping Store</title>
+    <title>UnleashHarry Premium Store</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
-        header { background-color: #232f3e; color: white; padding: 15px; font-size: 24px; font-weight: bold; }
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
-        .product-card { background: white; border: 1px solid #ddd; margin: 15px; padding: 15px; border-radius: 8px; width: 280px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .product-card img { max-width: 100%; height: auto; border-radius: 5px; }
-        .product-title { font-size: 18px; font-weight: bold; margin: 10px 0; color: #333; }
-        .product-price { color: #B12704; font-size: 20px; font-weight: bold; margin: 5px 0; }
-        .buy-btn { display: inline-block; background-color: #ffd814; color: #111; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold; margin-top: 10px; border: 1px solid #fcd200; }
-        .buy-btn:hover { background-color: #f7ca00; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #0f0c1b; color: #fff; overflow-x: hidden; text-align: center; }
+        
+        /* शानदार नियॉन हेडर */
+        header { 
+            background: linear-gradient(135deg, #1f1a3a, #0d0b18); 
+            padding: 30px 15px; 
+            border-bottom: 2px solid #00f2fe;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+        .logo-text { font-size: 32px; font-weight: 800; tracking-letter: 1px; color: #fff; text-shadow: 0 0 10px #00f2fe, 0 0 20px #4facfe; }
+        .subtitle { font-size: 14px; color: #a0aec0; margin-top: 8px; font-weight: 300; }
+
+        /* प्रोडक्ट्स कंटेनर */
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        
+        /* 3D ग्लोइंग प्रोडक्ट कार्ड */
+        .product-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            margin: 20px; 
+            padding: 20px; 
+            border-radius: 16px; 
+            width: 300px; 
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        .product-card:hover::before { left: 100%; }
+        .product-card:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            border-color: #00f2fe; 
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); 
+        }
+        
+        /* प्रोडक्ट इमेज */
+        .img-container { background: #16122c; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .product-card img { max-width: 100%; height: 180px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); transition: 0.3s; }
+        .product-card:hover img { transform: scale(1.05); }
+
+        /* टेक्स्ट और प्राइस */
+        .product-title { font-size: 18px; font-weight: 600; margin: 15px 0 8px; color: #e2e8f0; text-align: left; height: 45px; overflow: hidden; }
+        .product-price { color: #00f2fe; font-size: 24px; font-weight: 700; text-align: left; margin-bottom: 15px; text-shadow: 0 0 10px rgba(0,242,254,0.3); }
+        
+        /* एनिमेटेड बटन */
+        .buy-btn { 
+            display: block; 
+            background: linear-gradient(45deg, #00f2fe, #4facfe); 
+            color: #fff; 
+            padding: 12px; 
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: 600; 
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .buy-btn:hover { 
+            background: linear-gradient(45deg, #4facfe, #00f2fe); 
+            box-shadow: 0 0 20px #00f2fe;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
-    <header>🛍️ मेरा बेस्ट शॉपिंग स्टोर 🛍️</header>
-    <p style="margin-top: 20px; font-size: 16px; color: #666;">यहाँ आपको मिलेंगे सबसे बेहतरीन प्रोडक्ट्स सबसे कम दामों पर!</p>
+    <header>
+        <div class="logo-text">⚡ UNLEASH HARRY STORE ⚡</div>
+        <div class="subtitle">बेस्ट गैजेट्स और ट्रेंडी प्रोडक्ट्स - सबसे कम दामों पर</div>
+    </header>
 
     <div class="container">
         <div class="product-card">
-            <img src="https://m.media-amazon.com/images/I/71GLMJ764xL._SX679_.jpg" alt="Product 1">
-            <div class="product-title">स्टाइलिश ब्लूटूथ हेडफोन्स (Wireless)</div>
-            <div class="product-price">₹1,499</div>
-            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
-        </div>
-
-        <div class="product-card">
-            <img src="https://m.media-amazon.com/images/I/61SSVxTSsBL._SX679_.jpg" alt="Product 2">
-            <div class="product-title">स्मार्ट वॉच (Fitness Tracker)</div>
+            <div class="img-container">
+                <img src="https://m.media-amazon.com/images/I/61SSVxTSsBL._SX679_.jpg" alt="Smart Watch">
+            </div>
+            <div class="product-title">Premium Fitness Smartwatch</div>
             <div class="product-price">₹2,499</div>
-            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
+            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
         </div>
 
         <div class="product-card">
-            <img src="https://m.media-amazon.com/images/I/71657TiFeHL._SX679_.jpg" alt="Product 3">
-            <div class="product-title">प्रीमियम मेन्स वॉच (Classic Black)</div>
+            <div class="img-container">
+                <img src="https://m.media-amazon.com/images/I/71GLMJ764xL._SX679_.jpg" alt="Headphones">
+            </div>
+            <div class="product-title">Wireless ANC Bluetooth Headphones</div>
+            <div class="product-price">₹1,499</div>
+            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
+        </div>
+
+        <div class="product-card">
+            <div class="img-container">
+                <img src="https://m.media-amazon.com/images/I/71657TiFeHL._SX679_.jpg" alt="Mens Watch">
+            </div>
+            <div class="product-title">Classic Luxury Black Quartz Watch</div>
             <div class="product-price">₹1,999</div>
-            <a href="#" target="_blank" class="buy-btn">अभी खरीदें (Buy Now)</a>
+            <a href="#" target="_blank" class="buy-btn">🔥 अभी खरीदें (Buy Now)</a>
         </div>
     </div>
 
 </body>
 </html>
-
